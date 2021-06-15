@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , shrink-to-fit=no">
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link>
+    <link rel="stylesheet" href="">
+    <style>
+      .bg-dark {
+          background-color: #2b2449!important;
+         }
+      .footer{
+          color: #fcfcfc;
+          background-color: #2b2449!important;
+          padding-top:10px;
+          padding-bottom:1px;
+          padding-left:20px;
+          padding-right:20px;
+          font-size: 1.5rem
+         }
+      .af{
+          color: #000000;
+          text-decoration: underline;
+          font-size: 1.5rem;
+         }
+    </style>
+
+    {% block css %}
+    {% endblock  %}
+
+    <title>{% block title %} SP Bank {% endblock%}</title>
+  </head>
+
+  <body>
+  {% load static %}
+    <nav class="navbar navbar-expand-md  m-l-1 navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="color: #fff; font-size: xx-large;text-shadow: 1px 1px 2px #d6ff26;" href="#">SPARK Bank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" style="padding-top: 10px;font-size: large;">
+              <a class="nav-link active" aria-current="page" href="/bank/">Home</a>
+            </li>
+            <li class="nav-item" style="padding-top: 10px;font-size: large;">
+              <a class="nav-link active" href="/bank/#transaction">Transactions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{ message }}!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% endif %}
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    {% block body %} {% endblock%}
+
+    <footer class="footer w-100 d-flex justify-content-center align-items-center position-absolute">
+      <p>&copy; 2021 SPARK Bank
+    </footer>
+  </body>
+
+</html>

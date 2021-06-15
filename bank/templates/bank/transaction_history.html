@@ -1,0 +1,64 @@
+{% extends 'bank/basic.html' %}
+
+{% block title %} Transaction History {% endblock %}
+
+{% block css %}
+{% load static %}
+  <style>
+     h1 {
+       text-align: center;
+       color: #2b2449!important;
+       text-decoration: underline;
+       padding-bottom: 20px;
+       padding-top: 20px;
+      }
+    .container{
+       height: auto;
+       min-height: 75vh;
+      }
+  </style>
+{% endblock %}
+
+{% block body %}
+{% load static %}
+
+  <div class="show">
+    <div class="container col-md-10">
+      <h1>PREVIOUS TRANSACTIONS</h1>
+        <table class="table table-bordered">
+          <thead class="bg-primary">
+              <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">SENDER</th>
+                 <th scope="col">RECEIVER</th>
+                 <th scope="col">AMOUNT</th>
+                 <th scope="col">DATE</th>
+                 <th scope="col">STATUS</th>
+              </tr>
+          </thead>
+
+          <tbody>
+
+            {% for i in trans%}
+
+              <tr>
+                <th scope="row">{{i.T_id}}.</th>
+                <td>{{i.from_account}}</td>
+                <td>{{i.to_account}}</td>
+                <td>{{i.amount}}</td>
+                <td>{{i.date}}</td>
+                {% if i.status %}
+                <td>Success</td>
+                {% else %}
+                <td>Failed</td>
+                {% endif %}
+              </tr>
+
+           {% endfor %}
+
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+{% endblock %}
